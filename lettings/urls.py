@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('admin/', admin.site.urls),
+    path('lettings/', views.lettings_index, name='lettings_index'),
+    path('lettings/<int:letting_id>/', views.letting, name='letting')
 ]
