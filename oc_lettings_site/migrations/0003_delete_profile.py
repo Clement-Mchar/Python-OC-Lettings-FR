@@ -6,22 +6,21 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('oc_lettings_site', '0002_auto_20240730_0459'),
+        ("oc_lettings_site", "0002_auto_20240730_0459"),
     ]
 
     operations = [
         migrations.SeparateDatabaseAndState(
             state_operations=[
                 migrations.DeleteModel(
-                    name='Profile',
+                    name="Profile",
                 ),
             ],
             database_operations=[
                 migrations.AlterModelTable(
                     name="Profile",
-                    table='profiles_profile',
+                    table="profiles_profile",
                 ),
-            ]
+            ],
         )
-
     ]
