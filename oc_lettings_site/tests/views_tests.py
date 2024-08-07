@@ -1,10 +1,11 @@
 from django.urls import reverse, resolve
-from .base_tests import BaseTestSetup 
+from .base_tests import BaseTestSetup
+
 
 class BaseViews(BaseTestSetup):
 
     def test_index_view(self):
-        path = reverse('index')
+        path = reverse("index")
 
         response = self.client.get(path)
 
@@ -14,9 +15,9 @@ class BaseViews(BaseTestSetup):
         self.assertInHTML(expected_content, content)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "index.html")
-    
+
     def test_404_view(self):
-        path = '/notvalidpath'
+        path = "/notvalidpath"
 
         response = self.client.get(path)
 
@@ -25,5 +26,4 @@ class BaseViews(BaseTestSetup):
 
         self.assertInHTML(expected_content, content)
         self.assertEqual(response.status_code, 404)
-        self.assertTemplateUsed(response, '404.html')
-    
+        self.assertTemplateUsed(response, "404.html")

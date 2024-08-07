@@ -8,7 +8,7 @@ class LettingsModelsTests(BaseTestSetup):
         expected_value = "1 test street"
 
         assert str(self.test_address) == expected_value
-    
+
     def test_letting_model(self):
         expected_value = "test_letting"
 
