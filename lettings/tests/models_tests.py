@@ -1,4 +1,3 @@
-from django.urls import reverse, resolve
 from oc_lettings_site.tests.base_tests import BaseTestSetup
 
 

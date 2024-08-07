@@ -1,4 +1,4 @@
-from django.urls import reverse, resolve
+from django.urls import reverse
 from .base_tests import BaseTestSetup
 
 
@@ -10,7 +10,10 @@ class BaseViews(BaseTestSetup):
         response = self.client.get(path)
 
         content = response.content.decode()
-        expected_content = '<h1 class="page-header-ui-title mb-3 display-6">Welcome to Holiday Homes</h1>'
+        expected_content = (
+            '<h1 class="page-header-ui-title mb-3 display-6">'
+            "Welcome to Holiday Homes</h1>"
+        )
 
         self.assertInHTML(expected_content, content)
         self.assertEqual(response.status_code, 200)

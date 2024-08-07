@@ -20,25 +20,17 @@ def index(request):
     return render(request, "lettings/index.html", context)
 
 
-"""
-Cras ultricies dignissim purus, vitae hendrerit ex varius non.
-In accumsan porta nisl id eleifend. Praesent dignissim, odio eu consequat pretium,
-purus urna vulputate arcu, vitae efficitur
-lacus justo nec purus. Aenean finibus faucibus lectus at porta.
-Maecenas auctor, est ut luctus congue,
-dui enim mattis enim, ac condimentum velit libero in magna.
-Suspendisse potenti. In tempus a nisi sed laoreet.
-Suspendisse porta dui eget sem accumsan interdum.
-Ut quis urna pellentesque justo mattis ullamcorper ac non tellus.
-In tristique mauris eu velit fermentum, tempus pharetra est luctus.
-Vivamus consequat aliquam libero, eget bibendum lorem. Sed non dolor risus.
-Mauris condimentum auctor elementum.
-Donec quis nisi ligula.
-Integer vehicula tincidunt enim, ac lacinia augue pulvinar sit amet.
-"""
-
-
 def letting(request, letting_id):
+    """
+    View that displays a letting object :
+    -Retrieves the object's infos by its id
+    -Render it into the template
+    args:
+        request (HttpRequest) : the HTTP request object.
+        letting_id : the requested object's id.
+    returns:
+        HttpResponse : the HTTP response object with the rendered template.
+    """
     letting = Letting.objects.get(id=letting_id)
     context = {
         "title": letting.title,
