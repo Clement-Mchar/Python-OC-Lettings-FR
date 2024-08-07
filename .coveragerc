@@ -1,0 +1,10 @@
+[run]
+
+[report]
+
+omit =
+    */tests/*
+    */__init__.py
+    */migrations/*
+    manage.py
+    settings.py
