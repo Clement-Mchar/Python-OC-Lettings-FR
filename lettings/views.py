@@ -3,6 +3,7 @@ from .models import Letting
 
 # Create your views here.
 
+
 def index(request):
     """
     View for the letting objects list :
@@ -10,7 +11,7 @@ def index(request):
     -Render them into the template
     args:
         request (HttpRequest) : the HTTP request object.
-    
+
     returns:
         HttpResponse : the HTTP response object with the rendered template.
     """
