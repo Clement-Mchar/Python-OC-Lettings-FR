@@ -26,7 +26,7 @@ class ProfilesViewsTests(BaseTestSetup):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "profiles/profile.html")
 
-    @patch('profiles.views.sentry_sdk.capture_exception')
+    @patch('profiles.views.profile')
     def test_capture_exception(self, mock_capture_exception):
         path = reverse("profiles:profile", kwargs={"username": "Serge"})
         with self.assertRaises(UnboundLocalError):

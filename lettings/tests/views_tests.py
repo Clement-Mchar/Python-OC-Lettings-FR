@@ -26,7 +26,7 @@ class ViewsTests(BaseTestSetup):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "lettings/letting.html")
 
-    @patch('lettings.views.sentry_sdk.capture_exception')
+    @patch('lettings.views.letting')
     def test_capture_exception(self, mock_capture_exception):
         path = reverse("lettings:letting", kwargs={"letting_id": 2})
         with self.assertRaises(UnboundLocalError):
