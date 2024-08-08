@@ -1,8 +1,9 @@
 import os
 import sys
 import sentry_sdk
+import django
 from dotenv import load_dotenv
-
+from sentry_sdk.integrations.django import DjangoIntegration
 load_dotenv()
 
 def main():
@@ -29,5 +30,18 @@ if __name__ == '__main__':
         # of sampled transactions.
         # We recommend adjusting this value in production.
         profiles_sample_rate=1.0,
+        integrations=[
+            DjangoIntegration(
+                transaction_style='url',
+                middleware_spans=True,
+                signals_spans=True,
+                signals_denylist=[
+                    django.db.models.signals.pre_init,
+                    django.db.models.signals.post_init,
+                ],
+                cache_spans=False,
+            ),
+        ]
     )
+
     main()

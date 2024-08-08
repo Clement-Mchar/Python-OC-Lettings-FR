@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Profile
-
+import sentry_sdk
+from sentry_sdk import capture_exception
+import logging
 
 def index(request):
     """
@@ -29,6 +31,10 @@ def profile(request, username):
     returns:
         HttpResponse : the HTTP response object with the rendered template.
     """
-    profile = Profile.objects.get(user__username=username)
-    context = {"profile": profile}
+    try:
+        profile = Profile.objects.get(user__username=username)
+        context = {"profile": profile}
+    except Exception as e :
+        capture_exception(e)
     return render(request, "profiles/profile.html", context)
+

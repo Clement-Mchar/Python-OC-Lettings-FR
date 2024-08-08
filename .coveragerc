@@ -8,3 +8,6 @@ omit =
     */migrations/*
     manage.py
     settings.py
+    apps.py
+    asgi.py
+    wsgi.py

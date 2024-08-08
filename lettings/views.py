@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Letting
-
+import sentry_sdk
+from sentry_sdk import capture_exception
+import logging
 # Create your views here.
 
 
@@ -30,10 +32,14 @@ def letting(request, letting_id):
         letting_id : the requested object's id.
     returns:
         HttpResponse : the HTTP response object with the rendered template.
+    exceptions are caught by sentry
     """
-    letting = Letting.objects.get(id=letting_id)
-    context = {
-        "title": letting.title,
-        "address": letting.address,
-    }
+    try:
+        letting = Letting.objects.get(id=letting_id)
+        context = {
+            "title": letting.title,
+            "address": letting.address,
+        }
+    except Exception as e :
+        capture_exception(e)
     return render(request, "lettings/letting.html", context)
