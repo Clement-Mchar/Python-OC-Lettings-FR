@@ -7,6 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
@@ -24,6 +25,8 @@ jobs:
     - name: List files in the repository
       run: |
         ls ${{ github.workspace }}
+    - name: Python flake8 Lint
+      uses: py-actions/flake8@v2.3.0
     - name: Run Pytest
       run: |
         coverage run --source='.' -m pytest
