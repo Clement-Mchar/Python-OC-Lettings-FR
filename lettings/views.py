@@ -31,7 +31,7 @@ def letting(request, letting_id):
         request (HttpRequest) : the HTTP request object.
         letting_id : the requested object's id.
     returns:
-        HttpResponse : the HTTP response object with the rendered template.
+        HttpResponse : the HTTP response object with the rendered template.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     Exceptions are caught by sentry and logged
     """
     logger = logging.getLogger("django")
