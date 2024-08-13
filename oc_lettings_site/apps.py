@@ -9,4 +9,5 @@ class OCLettingsSiteConfig(AppConfig):
     options specific to this app. The `name` attribute defines the name of
     the application which is used by Django to reference it correctly.
     """
+
     name = "oc_lettings_site"

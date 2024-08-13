@@ -25,3 +25,6 @@ jobs:
       run: |
         coverage run --source='.' -m pytest
         coverage report
+    - name: List files in the repository
+      run: |
+        ls ${{ github.workspace }}

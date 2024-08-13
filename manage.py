@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
 load_dotenv()
 
+
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_lettings_site.settings')
     try:
@@ -17,6 +18,7 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
 
 dsn = os.environ.get("DSN")
 

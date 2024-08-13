@@ -2,6 +2,7 @@ from django.urls import reverse
 from oc_lettings_site.tests.base_tests import BaseTestSetup
 from unittest.mock import patch
 
+
 class ViewsTests(BaseTestSetup):
 
     def test_lettings_index_view(self):
@@ -26,7 +27,7 @@ class ViewsTests(BaseTestSetup):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "lettings/letting.html")
 
-    @patch('lettings.views.letting')
+    @patch("lettings.views.letting")
     def test_capture_exception(self, mock_capture_exception):
         path = reverse("lettings:letting", kwargs={"letting_id": 2})
         with self.assertRaises(UnboundLocalError):
@@ -35,4 +36,7 @@ class ViewsTests(BaseTestSetup):
             mock_capture_exception.assert_called_once()
             exception_captured = mock_capture_exception.call_args[0][0]
             assert isinstance(exception_captured, UnboundLocalError)
-            assert str(exception_captured) == "cannot access local variable 'context' where it is not associated with a value"
+            assert (
+                str(exception_captured)
+                == "cannot access local variable 'context' where it is not associated with a value"
+            )

@@ -11,6 +11,7 @@ class Profile(models.Model):
         user (OneToOneField): A one-to-one relationship with the Django User model.
         favorite_city (CharField): An optional field to store the user's favorite city.
     """
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     favorite_city = models.CharField(max_length=64, blank=True)
 

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Letting
 from sentry_sdk import capture_exception
 import logging
+
 # Create your views here.
 
 
@@ -40,7 +41,7 @@ def letting(request, letting_id):
             "title": letting.title,
             "address": letting.address,
         }
-    except Exception as e :
+    except Exception as e:
         logger.warning(f"Error from the logger: {e}")
         capture_exception(e)
     return render(request, "lettings/letting.html", context)
