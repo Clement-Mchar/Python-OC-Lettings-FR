@@ -27,6 +27,9 @@ jobs:
         ls ${{ github.workspace }}
     - name: Python flake8 Lint
       uses: py-actions/flake8@v2.3.0
+    - name: Run Flake8
+      run: | 
+        flake8
     - name: Run Pytest
       run: |
         coverage run --source='.' -m pytest
