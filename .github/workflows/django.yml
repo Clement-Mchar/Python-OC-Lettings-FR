@@ -27,9 +27,9 @@ jobs:
     - name: Run Pytest
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: coverage.cobertura.xml
+        filename: htmlcov.index.html
         thresholds: '80'
         run: |
           coverage run --source='.' -m pytest
           coverage report
-
+          coverage report html --cov="home/runner/work/Python-OC-Lettings-FR/Python-OC-Lettings-FR"
