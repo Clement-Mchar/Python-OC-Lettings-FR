@@ -27,6 +27,7 @@ jobs:
     - name: Run Pytest
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
+        filename: coverage.cobertura.xml
         thresholds: '80'
         run: |
           coverage run --source='.' -m pytest
