@@ -33,11 +33,11 @@ jobs:
     - name: Run Pytest
       run: |
         coverage run --source='.' -m pytest
-        coverage xml
+        coverage html
     - name: Code Coverage Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        filename: coverage.xml
+        filename: coverage.html
         badge: true
         fail_below_min: true
         format: markdown
@@ -50,4 +50,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: coverage-report
-        path: coverage.xml
+        path: coverage.html
