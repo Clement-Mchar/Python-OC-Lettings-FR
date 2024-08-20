@@ -3,6 +3,6 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    image: ${DOCKER_USERNAME}/oc_lettings:${COMMIT_HASH}
     env_file:
       - .env
+    image: ${DOCKER_USERNAME}/oc_lettings:${COMMIT_HASH}
