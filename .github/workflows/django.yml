@@ -57,3 +57,4 @@ jobs:
     - name: Build and Push Docker Image
       run: |
         docker compose build
+        docker compose push
