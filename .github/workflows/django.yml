@@ -54,6 +54,7 @@ jobs:
     - name: Set environment variables
       run: |
         echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV
+        echo "DOCKER_USERNAME=${{secrets.DOCKER_USERNAME}}"
     - name: Build and Push Docker Image
       run: |
         docker compose build
