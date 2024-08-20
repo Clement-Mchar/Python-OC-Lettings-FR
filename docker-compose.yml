@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: ${DOCKER_USERNAME}/oc_lettings:${COMMIT_HASH}
+    env_file:
+      - .env
