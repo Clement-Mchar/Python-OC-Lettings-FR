@@ -4,5 +4,5 @@ services:
       context: .
       dockerfile: dockerfile
       env_file:
-        path: .
+        path: ./.env
     image: ${DOCKER_USERNAME}/oc_lettings:${COMMIT_HASH}
