@@ -53,7 +53,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Set environment variables
       run: |
-        echo "DOCKER_USERNAME=${{secrets.DOCKER_USERNAME}}"
         echo "COMMIT_HASH=${{ github.sha }}" >> $GITHUB_ENV
     - name: Build and Push Docker Image
       run: |
