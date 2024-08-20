@@ -56,5 +56,5 @@ jobs:
         echo "COMMIT_SHA=${{ github.sha }}" >> $GITHUB_ENV
     - name: Build and Push Docker Image
       run: |
-        docker-compose build
-        docker-compose push
+        docker compose build
+        docker compose push
