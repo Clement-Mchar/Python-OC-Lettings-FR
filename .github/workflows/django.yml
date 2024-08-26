@@ -71,7 +71,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Deploy Docker Image
+    - name: Deploy Docker Image to Render
       if: github.ref == 'refs/heads/master'
       env:
         deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
