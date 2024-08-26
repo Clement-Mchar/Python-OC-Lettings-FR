@@ -42,8 +42,11 @@ jobs:
         path: htmlcov/
 
   build-docker-image:
+
     needs: tests-and-coverage
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v4
     - name: Login to Docker Hub
@@ -58,3 +61,20 @@ jobs:
       env:
         COMMIT_HASH: ${{ github.sha }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  
+  deploy-image-to-render:
+    needs: 
+    - tests-and-coverage
+    - build-docker-image
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Deploy Docker Image
+      if: github.ref == 'refs/heads/master'
+      env:
+        deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      run: |
+        curl "$deploy_url"&imgURL=docker.io/${{ secrets.DOCKER_USERNAME }}/oc_lettings:${{ github.sha }}
+        
