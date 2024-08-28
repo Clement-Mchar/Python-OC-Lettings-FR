@@ -76,5 +76,5 @@ jobs:
       env:
         deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
       run: |
-        curl "$deploy_url" -d "imgURL=docker.io/${{ secrets.DOCKER_USERNAME }}/oc_lettings:${{ github.sha }}"
+        curl "$deploy_url"
         
