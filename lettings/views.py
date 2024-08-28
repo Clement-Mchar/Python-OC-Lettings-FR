@@ -5,6 +5,7 @@ import logging
 
 # Create your views here.
 
+
 def index(request):
     """
     View for the letting objects list :
