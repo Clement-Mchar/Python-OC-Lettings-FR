@@ -1,10 +1,14 @@
-# Exported from Render on 2024-08-28T00:07:04Z
+# Exported from Render on 2024-08-28T00:26:54Z
 services:
 - type: web
-  name: Holiday Homes
-  runtime: image
-  image:
-    url: docker.io/clemchar/oc_lettings:8ff438dff2e09e5328a2dfe13e91b4049220bf4b
+  name: Python-OC-Lettings-FR
+  runtime: python
+  repo: https://github.com/Clement-Mchar/Python-OC-Lettings-FR
   plan: free
   region: oregon
+  buildCommand: 
+    - pip install -r requirements.txt
+    - python manage.py collectstatic --noinput
+  startCommand: gunicorn oc_lettings_site.wsgi
+  autoDeploy: false
 version: "1"
