@@ -28,9 +28,13 @@ jobs:
     - name: Python flake8 Lint
       uses: py-actions/flake8@v2.3.0
     - name: Run Flake8
+      env:
+        SECRET_KEY: ${{ secrets.DSK }}
       run: | 
         flake8
     - name: Run Pytest and Generate Coverage HTML Report
+      env:
+        SECRET_KEY: ${{ secrets.DSK }}
       run: |
         coverage run --source='.' -m pytest
         coverage html
