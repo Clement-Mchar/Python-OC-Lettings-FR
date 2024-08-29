@@ -3,4 +3,4 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    image: ${DOCKER_USERNAME}/oc_lettings:${COMMIT_HASH}
+    image: ${DOCKER_USERNAME}/oc_lettings
