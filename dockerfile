@@ -16,7 +16,7 @@ COPY . .
 RUN echo "SECRET_KEY=$secret_key" > /app/oc_lettings_site/.env
 RUN echo "DSN=$sentry_url" >> /app/oc_lettings_site/.env
 
-RUN python manage.py collectstatic
+RUN python manage.py collectstatic --noinput
 
 
 EXPOSE 8000
