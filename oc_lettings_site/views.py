@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 
-
 def index(request):
     """render the index page
 
