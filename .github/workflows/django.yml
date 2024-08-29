@@ -29,12 +29,12 @@ jobs:
       uses: py-actions/flake8@v2.3.0
     - name: Run Flake8
       env:
-        SECRET_KEY: ${{ secrets.DSK }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: | 
         flake8
     - name: Run Pytest and Generate Coverage HTML Report
       env:
-        SECRET_KEY: ${{ secrets.DSK }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
         coverage run --source='.' -m pytest
         coverage html
@@ -60,7 +60,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build and Push Docker Image
       run: |
-        docker compose build
+        docker compose build --platform=linux/amd64 --build-arg secret_key="${{ secrets.SECRET_KEY }}" --build-arg sentry_url=${{ secrets.SENTRY_KEY_URL }}
         docker compose push
       env:
         COMMIT_HASH: ${{ github.sha }}
@@ -79,7 +79,7 @@ jobs:
       if: github.ref == 'refs/heads/master'
       env:
         deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
-        SECRET_KEY: ${{ secrets.DSK }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
         curl "$deploy_url"
         
