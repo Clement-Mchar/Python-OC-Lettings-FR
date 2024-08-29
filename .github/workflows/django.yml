@@ -79,6 +79,7 @@ jobs:
       if: github.ref == 'refs/heads/master'
       env:
         deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        SECRET_KEY: ${{ secrets.DSK }}
       run: |
         curl "$deploy_url"
         
