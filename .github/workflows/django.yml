@@ -62,7 +62,6 @@ jobs:
       run: |
         docker compose build --build-arg secret_key="${{ secrets.SECRET_KEY }}" --build-arg sentry_url=${{ secrets.SENTRY_KEY_URL }}
         docker compose push
-        docker compose up
       env:
         COMMIT_HASH: ${{ github.sha }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
