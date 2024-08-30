@@ -86,7 +86,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Créez un fichier .env à la racine de votre projet, ajoutez-y les variables suivantes : 
   - DSN(Votre Clé d'URL Sentry que vous n'avez pas encore)
-  - SECRET_KEY(Votre clé secrète Django)
+  - SECRET_KEY(Votre clé secrète Django, que vous pouvez générer sur `https://djecrety.ir`)
   - DOCKER_USERNAME(Votre nom d'utilisateur Docker)
   - COMMIT_HASH(Mettez juste "hash", vous pouvez mettre ce que vous voulez dans la mesure où ça respecte la casse, c'est nécessaire pour faire fonctionner le fichier compose.yaml)
 
