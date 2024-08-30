@@ -27,11 +27,11 @@ Setting Up GitHub Actions Secrets
 1. Go to the repository's "Settings" on GitHub.
 2. In the "General" tab, rename the main branch to `master`.
 3. Navigate to "Secrets and Variables > Actions > New repository secret" and add the following secrets:
-   - `DOCKER_USERNAME`: Your Docker Hub username.
-   - `DOCKER_PASSWORD`: Your Docker Hub password.
-   - `RENDER_DEPLOY_HOOK`: The deployment hook URL from Render settings.
-   - `SECRET_KEY`: Your Django secret key from the `.env` file.
-   - `SENTRY_KEY_URL`: The Sentry DSN from your `.env` file.
+   * `DOCKER_USERNAME`: Your Docker Hub username.
+   * `DOCKER_PASSWORD`: Your Docker Hub password.
+   * `RENDER_DEPLOY_HOOK`: The deployment hook URL from Render settings.
+   * `SECRET_KEY`: Your Django secret key from the `.env` file.
+   * `SENTRY_KEY_URL`: The Sentry DSN from your `.env` file.
 
 Deployment Process
 -------------------
