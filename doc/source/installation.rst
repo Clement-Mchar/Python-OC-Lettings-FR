@@ -1,10 +1,10 @@
 Installation
 ============
 
-Clonage du dépôt
-----------------
+Cloning the Repository
+----------------------
 
-Clonez le dépôt de code avec la commande suivante :
+Clone the code repository with the following command:
 
 .. code-block:: bash
 
@@ -12,47 +12,47 @@ Clonez le dépôt de code avec la commande suivante :
 
 .. note::
 
-   Vous pouvez également télécharger le code en tant qu'archive zip.
+   You can also download the code as a zip archive.
 
-Navigation vers le répertoire du projet
----------------------------------------
+Navigating to the Project Directory
+------------------------------------
 
-Depuis un terminal, naviguez vers la racine du répertoire `Python-OC-Lettings-FR` avec la commande suivante :
+From a terminal, navigate to the root of the `Python-OC-Lettings-FR` directory with the following command:
 
 .. code-block:: bash
 
    cd python-oc-lettings-fr
 
-Création de l'environnement virtuel
-----------------------------------
+Creating the Virtual Environment
+--------------------------------
 
-Créez un environnement virtuel pour le projet avec la commande suivante :
+Create a virtual environment for the project with the following command:
 
 .. code-block:: bash
 
    # Windows
    python -m venv venv
 
-   # MacOS ou Linux
+   # MacOS or Linux
    python3 -m venv venv
 
-Activation de l'environnement virtuel
--------------------------------------
+Activating the Virtual Environment
+----------------------------------
 
-Activez l'environnement virtuel avec la commande suivante :
+Activate the virtual environment with the following command:
 
 .. code-block:: bash
 
    # Windows
-   env\Scripts\activate
+   venv/Scripts/activate
 
-   # MacOS ou Linux
-   source env/bin/activate
+   # MacOS or Linux
+   source venv/bin/activate
 
-Installation des dépendances
-----------------------------
+Installing Dependencies
+------------------------
 
-Installez les dépendances du projet avec la commande suivante :
+Install the project dependencies with the following command:
 
 .. code-block:: bash
 
