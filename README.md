@@ -81,6 +81,7 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 ### Prérequis
 - Un compte Docker et l'application Docker.
 - Un compte Render.
+- Un compte Sentry.
 
 ### Définition des variables d'environnement
 
