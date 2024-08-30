@@ -87,42 +87,41 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 ## Déploiement du site
 
 ### Prérequis
-- Un compte Docker et l'application Docker.
-- Un compte Render.
-- Un compte Sentry.
+- Compte Docker avec l'application Docker installée.
+- Compte Render.
+- Compte Sentry.
 
-#### Créez votre service web sur Render
-- Accédez au tableau de bord de Render et cliquez sur "New" en haut à droite à côté de votre nom d'utilisateur.
-- Créez un web service en indiquant votre repository et cliquez sur "Connect"
-- Descendez dans les paramètre et à l'option "StartCommand", entrez "gunicorn oc_lettings_site.wsgi"
-- Dans la partie Instance Type, cliquez sur "Free"
-- Cliquez sur "Advanced" et paramétrez "Auto-Deploy" sur "No"
+### Étapes de déploiement
 
-- Déployez manuellement le web service
+#### 1. Création du service web sur Render
+- Accédez à votre tableau de bord Render.
+- Cliquez sur **New** > **Web Service**, puis connectez votre repository.
+- Configurez les paramètres suivants :
+  - **Start Command** : `gunicorn oc_lettings_site.wsgi`
+  - **Instance Type** : Free
+  - **Auto-Deploy** : No (dans **Advanced**).
+- Déployez manuellement le service.
+- Ajoutez l'adresse Render aux `ALLOWED_HOSTS` dans `settings.py`.
 
-- Ajoutez l'adresse du déploiement aux ALLOWED_HOSTS dans votre fichier settings.py
+#### 2. Configuration de Sentry
+- Créez un projet Sentry et sélectionnez **Django** comme plateforme.
+- Récupérez le DSN de Sentry et collez à la variable DSN dans le fichier `.env`.
 
-#### Créez votre projet Sentry
+#### 3. Définir les secrets pour GitHub Actions
+- Sur GitHub, accédez à **Settings** de votre repository.
+- Dans **General**, renommez la branche principale en **master**.
+- Allez dans **Secrets and Variables** > **Actions** > **New repository secret**, puis ajoutez les secrets suivants :
+  - `DOCKER_USERNAME`
+  - `DOCKER_PASSWORD`
+  - `RENDER_DEPLOY_HOOK` (disponible dans les paramètres de votre service Render).
+  - `SECRET_KEY` (depuis votre fichier `.env`).
+  - `SENTRY_KEY_URL` (DSN de Sentry depuis `.env`).
 
-- Accédez à votre compte Sentry, cliquez sur "Create Project"
-- Sélectionnez Django dans la partie "Choose your platform"
-- Donnez un nom à votre projet, et cliquez sur "Create Project"
-- Dans le fichier settings.py,  la valeur de la variable "dsn" et collez la en tant que valeur de "DSN" dans votre fichier .env
+### Exécution locale (optionnel)
+- Pour tester localement, exécutez les commandes suivantes :
+  ```bash
+  docker compose build
+  docker compose up
 
-### Définition des secrets de Github Actions
-
-- Sur Github, allez sur la page de votre repository, et cliquez sur Settings.
-- Dans l'onglet General, changez le nom de votre branche en "master" pour éviter tout problème avec le workflow.
-- Allez dans Secrets and Variables, puis dans le sous menu "Actions".
-- Dans l'onglet "Secrets", cliquez sur "New repository secret", et renseignez y les variables suivantes : 
-  - DOCKER_PASSWORD(Votre mot de passe docker)
-  - DOCKER_USERNAME
-  - RENDER_DEPLOY_HOOK(Allez dans les settings de votre service web sur Render, descendez et copiez la valeur de Deploy Hook, puis collez là comme valeur de ce secret.)
-  - SECRET_KEY(Copiez collez la SECRET_KEY de votre fichier .env)
-  - SENTRY_KEY_URL(Copiez collez la valeur DSN de votre fichier .env)
-
-- Dans votre terminal de commandes, entrez les commandes : 
-  -`docker compose build`
-  -`docker compose up`
 
 - Redéployez manuellement votre projet sur Render ou bien il se redéploiera automatiquement au prochain commit.
