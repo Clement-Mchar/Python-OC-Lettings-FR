@@ -3,6 +3,5 @@
 venv
 .env
 staticfiles
-compose.yml
 dockerfile
 render.yaml
