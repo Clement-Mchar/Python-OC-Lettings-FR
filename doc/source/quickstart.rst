@@ -1,7 +1,8 @@
 Démarrage rapide
 ===========
 
-Once you finished to install the project, run the server with the command 
+Once you finished to install the project, run the server with the following command :
+
 .. code-block:: bash
 
    python manage.py runserver localhost:8000
