@@ -6,10 +6,21 @@
 Holiday Homes documentation
 ===========================
 
+
 Add your content using ``reStructuredText`` syntax. See the
 `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
 documentation for details.
 
+Description
+------------------------
+
+.. figure:: assets/OC-lettings.png
+   :alt: Orange County Description
+
+Orange County is a start-up working in the real-estate rental sector. 
+It is growing quickly in the US and needs to be scaled to the level of its ambitions.
+
+This documentation is meant to explain the code behind the website and also the means used to achieve this scaling goal.
 
 .. toctree::
    :maxdepth: 2

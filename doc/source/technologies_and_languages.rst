@@ -11,7 +11,7 @@ This section list all technologies and language with their versions and official
         Service of GitHub use to launch CI/CD on push
     * `Python 3.12.0 <https://www.python.org/>`__
         Base language of the project
-    * `Django 5.1<https://www.djangoproject.com/>`__
+    * `Django 5.1 <https://www.djangoproject.com/>`__
         Web Framework used to serve the website
     * `Docker <https://hub.docker.com/>`__
         Docker to create container
