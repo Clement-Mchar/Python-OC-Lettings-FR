@@ -8,7 +8,7 @@ Clonez le dépôt de code avec la commande suivante :
 
 .. code-block:: bash
 
-   git clone https://github.com/AlexianeBA/Python-OC-Lettings-FR
+   git clone https://github.com/Clement-Mchar/Python-OC-Lettings-FR
 
 .. note::
 
@@ -31,10 +31,10 @@ Créez un environnement virtuel pour le projet avec la commande suivante :
 .. code-block:: bash
 
    # Windows
-   python -m venv env
+   python -m venv venv
 
    # MacOS ou Linux
-   python3 -m venv env
+   python3 -m venv venv
 
 Activation de l'environnement virtuel
 -------------------------------------
