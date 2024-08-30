@@ -27,7 +27,7 @@ def profile(request, username):
     -Render it into the template
     args:
         request (HttpRequest) : the HTTP request object.
-        profile_id : the requested object's id clicked on the previous page.
+        profile_id : the requested object id clicked on the previous page.
     returns:
         HttpResponse : the HTTP response object with the rendered template.
     """
