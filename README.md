@@ -85,17 +85,43 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 ### Définition des variables d'environnement
 
 - Créez un fichier .env à la racine de votre projet, ajoutez-y les variables suivantes : 
-  - DSN(Votre Clé d'URL Sentry)
+  - DSN(Votre Clé d'URL Sentry que vous n'avez pas encore)
   - SECRET_KEY(Votre clé secrète Django)
   - DOCKER_USERNAME(Votre nom d'utilisateur Docker)
   - COMMIT_HASH(Mettez juste "hash", vous pouvez mettre ce que vous voulez dans la mesure où ça respecte la casse, c'est nécessaire pour faire fonctionner le fichier compose.yaml)
+
+#### Créez votre service web sur Render
+- Accédez au tableau de bord de Render et cliquez sur "New" en haut à droite à côté de votre nom d'utilisateur.
+- Créez un web service en indiquant votre repository et cliquez sur "Connect"
+- Descendez dans les paramètre et à l'option "StartCommand", entrez "gunicorn oc_lettings_site.wsgi"
+- Dans la partie Instance Type, cliquez sur "Free"
+- Cliquez sur "Advanced" et paramétrez "Auto-Deploy" sur "No"
+
+- Déployez manuellement le web service
+
+- Ajoutez l'adresse du déploiement aux ALLOWED_HOSTS dans votre fichier settings.py
+
+#### Créez votre projet Sentry
+
+- Accédez à votre compte Sentry, cliquez sur "Create Project"
+- Sélectionnez Django dans la partie "Choose your platform"
+- Donnez un nom à votre projet, et cliquez sur "Create Project"
+- Dans le fichier settings.py,  la valeur de la variable "dsn" et collez la en tant que valeur de "DSN" dans votre fichier .env
+
+### Définition des secrets de Github Actions
 
 - Sur Github, allez sur la page de votre repository, et cliquez sur Settings.
 - Dans l'onglet General, changez le nom de votre branche en "master" pour éviter tout problème avec le workflow.
 - Allez dans Secrets and Variables, puis dans le sous menu "Actions".
 - Dans l'onglet "Secrets", cliquez sur "New repository secret", et renseignez y les variables suivantes : 
-  - DOCKER_PASSWORD
+  - DOCKER_PASSWORD(Votre mot de passe docker)
   - DOCKER_USERNAME
-  - RENDER_DEPLOY_HOOK
-  - SECRET_KEY
-  - SENTRY_KEY_URL
+  - RENDER_DEPLOY_HOOK(Allez dans les settings de votre service web sur Render, descendez et copiez la valeur de Deploy Hook, puis collez là comme valeur de ce secret.)
+  - SECRET_KEY(Copiez collez la SECRET_KEY de votre fichier .env)
+  - SENTRY_KEY_URL(Copiez collez la valeur DSN de votre fichier .env)
+
+- Dans votre terminal de commandes, entrez les commandes : 
+  -`docker compose build`
+  -`docker compose up`
+
+- Redéployez manuellement votre projet sur Render ou bien il se redéploiera automatiquement au prochain commit.
