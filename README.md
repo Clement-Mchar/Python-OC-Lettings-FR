@@ -32,6 +32,14 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
 - Pour désactiver l'environnement, `deactivate`
 
+### Définition des variables d'environnement
+
+- Créez un fichier .env à la racine de votre projet, ajoutez-y les variables suivantes : 
+  - DSN(Votre Clé d'URL Sentry que vous n'avez pas encore)
+  - SECRET_KEY(Votre clé secrète Django, que vous pouvez générer sur `https://djecrety.ir`)
+  - DOCKER_USERNAME(Votre nom d'utilisateur Docker)
+  - COMMIT_HASH(Mettez juste "hash", vous pouvez mettre ce que vous voulez dans la mesure où ça respecte la casse, c'est nécessaire pour faire fonctionner le fichier compose.yaml)
+
 #### Exécuter le site
 
 - `cd /path/to/Python-OC-Lettings-FR`
@@ -82,14 +90,6 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Un compte Docker et l'application Docker.
 - Un compte Render.
 - Un compte Sentry.
-
-### Définition des variables d'environnement
-
-- Créez un fichier .env à la racine de votre projet, ajoutez-y les variables suivantes : 
-  - DSN(Votre Clé d'URL Sentry que vous n'avez pas encore)
-  - SECRET_KEY(Votre clé secrète Django, que vous pouvez générer sur `https://djecrety.ir`)
-  - DOCKER_USERNAME(Votre nom d'utilisateur Docker)
-  - COMMIT_HASH(Mettez juste "hash", vous pouvez mettre ce que vous voulez dans la mesure où ça respecte la casse, c'est nécessaire pour faire fonctionner le fichier compose.yaml)
 
 #### Créez votre service web sur Render
 - Accédez au tableau de bord de Render et cliquez sur "New" en haut à droite à côté de votre nom d'utilisateur.
