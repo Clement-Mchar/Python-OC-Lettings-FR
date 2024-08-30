@@ -25,4 +25,6 @@ This documentation is meant to explain the code behind the website and also the 
    quickstart
    technologies_and_languages
    database
+   interfaces
    deployments
+   use_cases
