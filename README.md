@@ -75,3 +75,27 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+## Déploiement du site
+
+### Prérequis
+- Un compte Docker et l'application Docker.
+- Un compte Render.
+
+### Définition des variables d'environnement
+
+- Créez un fichier .env à la racine de votre projet, ajoutez-y les variables suivantes : 
+  - DSN(Votre Clé d'URL Sentry)
+  - SECRET_KEY(Votre clé secrète Django)
+  - DOCKER_USERNAME(Votre nom d'utilisateur Docker)
+  - COMMIT_HASH(Mettez juste "hash", vous pouvez mettre ce que vous voulez dans la mesure où ça respecte la casse, c'est nécessaire pour faire fonctionner le fichier compose.yaml)
+
+- Sur Github, allez sur la page de votre repository, et cliquez sur Settings.
+- Dans l'onglet General, changez le nom de votre branche en "master" pour éviter tout problème avec le workflow.
+- Allez dans Secrets and Variables, puis dans le sous menu "Actions".
+- Dans l'onglet "Secrets", cliquez sur "New repository secret", et renseignez y les variables suivantes : 
+  - DOCKER_PASSWORD
+  - DOCKER_USERNAME
+  - RENDER_DEPLOY_HOOK
+  - SECRET_KEY
+  - SENTRY_KEY_URL

@@ -1,4 +1,4 @@
-Démarrage rapide
+Quickstart
 ===========
 
 Once you finished to install the project, run the server with the following command :
