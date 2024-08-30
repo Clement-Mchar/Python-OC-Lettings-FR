@@ -4,3 +4,4 @@ services:
       context: .
       dockerfile: dockerfile
     image: ${DOCKER_USERNAME}/oc_lettings:${COMMIT_HASH}
+    container_name: my_custom_container_name
